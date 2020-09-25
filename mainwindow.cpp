@@ -105,10 +105,11 @@ void MainWindow::getShortestRoute(int start, int end)
         std::cout<<"termine de revisar la ruta"<<std::endl;
         std::string message="The shortest route is ";
         for(int i=0;i<path->getLen();i++){
-            message+=std::to_string(*path->get(i));
+            message+=std::to_string(*path->get(i))+",";
         }
-        message+="\nThe value is";
-        message+=std::to_string(price);
+        message+="\nThe value is ";
+        message+=std::to_string((int)price);
+        std::cout<<"El texto por enviar para la ruta corta es "<<message;
         server->write(QString::fromStdString(message));
     }
 

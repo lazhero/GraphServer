@@ -58,10 +58,12 @@ void FloydIterator(int i,int j, int k,DoubleList<DoubleList<double>>*& prices, D
 DoubleList<int>* getPath(FloydWResponse* response,int start,int end){
     DoubleList<DoubleList<int>> *Predecessor=response->getPredecessors();
     DoubleList<int> *returning=new DoubleList<int>;
+    returning->add(start);
     int currentPosition=start;
-    while(currentPosition!=end){
-        returning->add(*new int(currentPosition));
+    while(*Predecessor->get(currentPosition)->get(end)!=currentPosition){
         currentPosition=*Predecessor->get(currentPosition)->get(end);
+        returning->add(*new int(currentPosition));
+        //currentPosition=;
     }
     returning->add(*new int(end));
     return returning;

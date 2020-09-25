@@ -103,13 +103,12 @@ void DoubleList<T>::set(int pos,T &data) {
 }
 template<typename T>
 DoubleList<T>::DoubleList(DoubleList<T> &List) {
-    //DoubleList();
-    len=EmptyLen;
     Tail=NULL;
     Head=NULL;
+    len=EmptyLen;
     T *temp;
     for (int i = 0; i < List.len; i++) {
         temp = new T(*List.get(i));
-        this->add(*temp);
+        add(*temp);
     }
 }
