@@ -1,3 +1,13 @@
+/**
+  *@file DoubleList.hpp
+  * @version 1.0
+  * @date 25/09/2020
+  * @author Luis Andrey Zuniga
+  * @title Generic DoubleList
+  */
+
+
+
 #include "../DoubleNode/DoubleNode.hpp"
 #define EmptyLen 0
 #define minIndex 0
@@ -12,19 +22,67 @@ struct OutIndexException : public std::exception {
 template<typename T>
 class DoubleList {
 private:
+    /**
+     * @brief HeadNode
+     */
     DoubleNode<T> *Head;
+    /**
+     * @brief TailNode
+     */
     DoubleNode<T> *Tail;
+    /**
+     * @brief len of the list
+     */
     int len;
+    /**
+     * @brief getNode at the indicated position
+     * @param pos of the node
+     * @return  a DoubleNode of the selected position
+     */
     DoubleNode<T>* getNode(int pos);
+    /**
+     * @brief verification of the position given, whenever is between [0:len[ returns true, else returns false
+     * @param index
+     * @return  a boolean
+     */
     bool verification(int index);
 public:
+    /**
+     * @brief The constructor of the DoubleList
+     */
     DoubleList();
+    /**
+     * @brief DoubleList Copy Constructor
+     * @param another object of the same class
+     */
     DoubleList(DoubleList<T>& List);
     ~DoubleList();
+    /**
+     * @brief Add data to the list
+     * @param The data to be added
+     */
     void add(T &data);
+    /**
+     * @brief Erase the data at an specific position
+     * @param the position to be erased
+     */
     void erase(int pos);
+    /**
+     * @brief replace the data at the specified position for another passed to this method
+     * @param position to be replaced
+     * @param Data to be putted instead
+     */
     void set(int pos,T &data);
+    /**
+     * @brief get the data at a position
+     * @param position to get the dada
+     * @return  the data at the given position
+     */
     T* get(int pos);
+    /**
+     * @brief get the length of the list
+     * @return  a integer that represents the length of the list
+     */
     int getLen();
 };
 template <typename T>
